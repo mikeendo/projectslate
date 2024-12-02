@@ -1,0 +1,9 @@
+kind: "Form"
+apiVersion: "1.0"
+spec:
+  name: "Test Form"
+  fields:
+    - name: "firstName"
+      type: "VARCHAR"
+    - name: "lastName"
+      type: "VARCHAR"
