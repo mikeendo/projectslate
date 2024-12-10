@@ -1,17 +1,32 @@
 package dev.mendo.projectslate
 
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
+import java.util.UUID
+
 class FormTemplate (
     val name: String,
     val fields: List<FormField>
-) {
-}
-
-open class FormField (
-    open val name: String,
-    open val type: String
 )
 
+@Entity
+class FormTemplateEntity (
+    @Id val id: UUID,
+    val name: String,
+
+    @OneToMany
+    val fields: List<FormFieldEntity>
+)
+
+class FormField (
+    val name: String,
+    val type: String,
+)
+
+@Entity
 class FormFieldEntity (
-    override val name: String,
-    override val type: String
-): FormField(name, type)
+    @Id val id: UUID,
+    val name: String,
+    val type: String
+)

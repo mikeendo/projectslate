@@ -22,13 +22,13 @@ class YamlImportService {
                 importForm(data["spec"] as Map<String, Any>)
             }
             else -> {
-                println("Not a form")
+                println("Whatwq a form")
             }
         }
 
     }
 
-    fun importForm(spec: Map<String, Any>){
+    fun importForm(spec: Map<String, Any>) : FormTemplate {
         println(spec)
         println(spec["name"])
         val fields = spec["fields"] as List<Map<String, Any>>
@@ -36,6 +36,7 @@ class YamlImportService {
             FormField(it["name"] as String, it["type"] as String)
         }}.toList() as List<FormField>
         val formTemplate = FormTemplate(spec["name"] as String, map)
+        return formTemplate
 
     }
 }
